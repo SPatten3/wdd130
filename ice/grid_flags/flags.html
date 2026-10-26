@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flag</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', sans-serif;
+            background: gray;
+        }
+
+        header {
+            background: #222;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            letter-spacing: 0.05rem;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-weight: 400;
+        }
+        main {
+            display: grid;
+            grid-template-columns: .1fr .1fr 1fr .1fr;
+            margin-top: 20px;
+        }
+        hr {
+            width: 100%;
+            grid-column: 1 / 5;
+        }
+        h2 {
+            grid-column: 2/3;
+        }
+
+        #blue {
+            background: blue;
+            grid-column: 1 / 2;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+        }
+
+        #white {
+            background: white;
+            grid-column: 2 / 4;
+        }
+
+        #red {
+            background: red;
+            grid-column: 1 / 4;
+        }
+
+        #chile {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            height: 200px;
+            width: 300px;
+        }
+
+        .star {
+            width: 70px;
+            aspect-ratio: 1;
+            background: white;
+            clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+        }
+
+        #denmark {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: 1fr 1fr;
+            background: white;
+            height: 200px;
+            width: 300px;
+        }
+
+        #dred1 {
+            grid-column: 1;
+            grid-row: 1;
+            background: red;
+            margin: 0px 15px 15px 0px;
+        }
+
+        #dred2 {
+            grid-column: 2;
+            grid-row: 1;
+            background: red;
+            margin: 0px 0px 15px 15px;
+        }
+        #dred3 {
+            grid-column: 1;
+            grid-row: 2;
+            background: red;
+            margin: 15px 15px 0px 0px;
+        }
+        #dred4 {
+            grid-column: 2;
+            grid-row: 2;
+            background: red;
+            margin: 15px 0px 0px 15px;
+        }
+        
+        #finland {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: 1fr 1fr;
+            background: blue;
+            height: 200px;
+            width: 300px;
+        }
+
+        #fwhite1 {
+            grid-column: 1;
+            grid-row: 1;
+            background: white;
+            margin: 0px 22px 22px 0px;
+        }
+
+        #fwhite2 {
+            grid-column: 2;
+            grid-row: 1;
+            background: white;
+            margin: 0px 0px 22px 22px;
+        }
+        #fwhite3 {
+            grid-column: 1;
+            grid-row: 2;
+            background: white;
+            margin: 22px 22px 0px 0px;
+        }
+        #fwhite4 {
+            grid-column: 2;
+            grid-row: 2;
+            background: white;
+            margin: 22px 0px 0px 22px;
+        }
+        
+        #benin {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: 1fr 1fr;
+            height: 200px;
+            width: 300px;
+        }
+
+        #bgreen {
+            background: green;
+            grid-row: 1/3;
+            grid-column: 1;
+        }
+
+        #byellow {
+            background: yellow;
+            grid-row: 1;
+            grid-column: 2;
+        }
+
+        #bred{
+            background: red;
+            grid-row: 2;
+            grid-column: 2;
+        }
+
+        #car {
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            grid-template-rows: repeat(4, 1fr);
+            height: 200px;
+            width: 300px;
+        }
+
+        #carb1 {
+            grid-column: 1;
+            grid-row: 1;
+            background: navy;
+            padding: 0px;
+        }
+
+        #carstar {
+            height: 90%;
+            aspect-ratio: 1;
+            background: gold;
+            clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+            display: inline-block;
+            margin: 5px 0px 0px 25px;
+        }
+
+        #carb2 {
+            grid-column: 3;
+            grid-row: 1;
+            background: navy;
+        }
+
+        #carw1 {
+            grid-column: 1;
+            grid-row: 2;
+            background: white;
+        }
+
+        #carw2 {
+            grid-column: 3;
+            grid-row: 2;
+            background: white;
+        }
+
+        #carg1 {
+            grid-column: 1;
+            grid-row: 3;
+            background: green;
+            
+        }
+
+        #carg2 {
+            grid-column: 3;
+            grid-row: 3;
+            background: green;
+            
+        }
+
+        #cary1 {
+            grid-column: 1;
+            grid-row: 4;
+            background: gold;
+        }
+
+        #cary2 {
+            grid-column: 3;
+            grid-row: 4;
+            background: gold;
+        }
+
+        #carr {
+            grid-column: 2;
+            grid-row: 1/5;
+            background: red;
+        }
+        
+
+        #italy {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            height: 200px;
+            width: 300px;
+        }
+
+        #igreen {
+            background: green
+        }
+        
+        #iwhite {
+            background: white;
+        }
+        
+        #ired {
+            background: red;
+        }
+
+        #usa {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            grid-template-rows: repeat(13, 1fr);
+            height: 200px;
+            width: 380px;
+        }
+        .usa-row {
+            grid-column:1/-1;
+            background: red;
+        }
+        .usa-row:nth-child(even) {
+            grid-column: 1/-1;
+            background: white;
+        }
+
+        .usa-row:nth-child(n+1):nth-child(-n+7) {
+            grid-column: 2;
+        }
+
+        #usablue {
+            grid-row: 1/8;
+            grid-column: 1;
+            background: blue;
+            display: grid;
+            grid-template-rows: repeat(9, 1fr);
+            padding: 6px;
+        }
+        .star-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .star-row:nth-child(even) {
+            padding-inline: 14px;
+        }
+
+        .usa-star {
+            width: 2px;
+            aspect-ratio: 1;
+            background: white;
+            clip-path: polygon(50% 0, 79% 90%, 2% 35%, 98% 35%, 21% 90%);
+            padding: 0px 4px;
+        }
+
+        
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Using CSS Grid to make Country Flags</h1>
+    </header>
+    <main>
+        <h2>Chile</h2>
+        <div id="chile">
+            <div id="blue">
+                <div class="star"></div>
+            </div>
+            <div id="white"></div>
+            <div id="red"></div>
+        </div>
+        <hr>
+
+        <h2>Denmark</h2>
+        <div id="denmark">
+            <div id="dred1"></div>
+            <div id="dred2"></div>
+            <div id="dred3"></div>
+            <div id="dred4"></div>
+        </div>
+        <hr>
+
+        <h2>Finland</h2>
+        <div id="finland">
+            <div id="fwhite1"></div>
+            <div id="fwhite2"></div>
+            <div id="fwhite3"></div>
+            <div id="fwhite4"></div>
+        </div>
+        <hr>
+
+        <h2>Benin</h2>
+        <div id="benin">
+            <div id="bgreen"></div>
+            <div id="byellow"></div>
+            <div id="bred"></div>
+        </div>
+
+        <hr>
+
+        <h2>Italy</h2>
+        <div id="italy">
+            <div id="igreen"></div>
+            <div id="iwhite"></div>
+            <div id="ired"></div>
+        </div>
+
+        <hr>
+
+        <h2>Central African Republic</h2>
+        <div id="car">
+            <div id="carb1">
+                <span id="carstar"></span>
+            </div>
+            <div id="carb2"></div>
+            <div id="carw1"></div>
+            <div id="carw2"></div>
+            <div id="carg1"></div>
+            <div id="carg2"></div>
+            <div id="cary1"></div>
+            <div id="cary2"></div>
+            <div id="carr"></div>
+            
+        </div>
+
+        <hr>
+
+        <h2>Unites States of America</h2>
+        <!-- AI helped learn some of the CSS but for the most part I planned out the rest -->
+        <div id="usa">
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div class="usa-row"></div>
+            <div id="usablue">
+                <div class="star-row">
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                </div>
+                <div class="star-row">
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                </div>
+                <div class="star-row">
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                </div>
+                <div class="star-row">
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                </div>
+                <div class="star-row">
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                </div>
+                <div class="star-row">
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                </div>
+                <div class="star-row">
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                </div>                    
+                <div class="star-row">
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                </div>
+                <div class="star-row">
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                    <div class="usa-star"></div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </main>
+</body>
+
+</html>

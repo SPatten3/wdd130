@@ -3,10 +3,84 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Portal Page</title>
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="icon" href="images/sp.png">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+        </style>
+
+
     </head>
     <body>
-        <h1>Hello Internet!</h1>
-        <p>I don't like to play chess</p>
+        <div id="main-container">
+            <header class="portal-header">
+                <h1>Spencer's Portal Page</h1>
+                <nav class="portal-navbar">
+                    <img src="images/sp.png" alt="My Logo" class="logo">
+                    <ul>
+                        <li><a href="index.html"><strong>Home</strong></a></li>
+                        <li><a href="wwr/index.html"><strong>WWR</strong></a></li>
+                        <li><a href="ice/index.html" target="_blank"><strong>ICE</strong></a></li>
+                        <li><a href="about_me.html"><strong>About Me</strong></a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="main-body">
+                <div class="body-section">
+                    <table class="table-left">
+                        <tr>
+                            <th>Project</th>
+                            <th>Description</th>
+                            <th>Skills Learned</th>
+                        </tr>
+                        <tr>
+                            <td>WWR</td>
+                            <td>Guided Practice creating a site for a fictitious White Water Rafting Company</td>
+                            <td>Site Planning, Styling, Structure</td>
+                        </tr>
+                        <tr>
+                            <td>ICE</td>
+                            <td>In-class Challenges to recreate and implement small HTML and CSS projects</td>
+                            <td>Design Process, Structuring Site Elements, Rapid Prototyping</td>
+                        </tr>
+                        <tr>
+                            <td>Portal Page</td>
+                            <td>Creating a hub for all of the class projects, cementing the basics with original design</td>
+                            <td>Self-guided Website Design</td>
+                        </tr>
+                    </table>
+                    <img src="images/hacker.jpg" alt="Stock Image of a stereotypical hacker" class="image-right">
+                </div>
+                <div class="body-section">
+                    <img src="images/thumbs_up.jpg" alt="Person giving thumbs up" class="image-left">
+                    <div  class="form-right">
+                        <form id="gimmickForm">
+                            <label for="email">Enter Your Email</label>
+                            <br/>
+                            <input type="email" id="email" name="email">
+                            <input type="submit">
+                        </form>
+                        <p>I guarantee no safety...</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="portal-footer">
+                <a href="https://www.linkedin.com/" target="_blank"><img src="images/LinkedIn_icon.svg.webp" alt="linkedin logo"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="images/Instagram_logo_2022.svg.webp" alt="instagram logo"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="images/Facebook_f_logo_(2021).svg.webp" alt="facebook logo"></a>
+                <p>&copy;Spencer Patten 2026</p>
+            </footer>
+
+        </div>
+        <script>
+            const form = document.getElementById('gimmickForm');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                alert('\nYour personal information successfully sold to the highest bidder!\n\nThank your for funding my college with your generous contribution.');
+            });
+        </script>
     </body>
 </html>
