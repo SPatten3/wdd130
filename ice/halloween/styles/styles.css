@@ -1,0 +1,699 @@
+*{
+    box-sizing:border-box;
+}
+
+html{
+    animation:lightning 20s infinite;
+}
+
+body{
+    margin:0;
+    font-family:Georgia, serif;
+    background:#080808;
+    color:#ffd59a;
+    text-shadow:0 0 4px rgba(0,0,0,.75);
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* HAUNTED BACKGROUND */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:-50%;
+
+    z-index:-3;
+
+    background:url("../images/images.jpg") repeat;
+
+    opacity:.22;
+
+    transform-origin:center center;
+
+    animation:
+        bgSpin 180s linear infinite,
+        bgWave 18s ease-in-out infinite alternate,
+        bgFlicker 7s infinite;
+}
+
+/* CRT SCREEN EFFECT */
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    z-index:999;
+
+    pointer-events:none;
+
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,.03) 0px,
+            rgba(255,255,255,.03) 1px,
+            transparent 2px,
+            transparent 4px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,0,0,.015),
+            rgba(0,255,255,.015)
+        );
+
+    mix-blend-mode:soft-light;
+
+    animation:crtFlicker .15s infinite;
+}
+
+/* WRAPPER */
+
+#wrapper{
+    width:min(1100px,90%);
+    margin:auto;
+    padding:2rem;
+    position:relative;
+}
+
+/* ATMOSPHERIC FOG */
+
+#wrapper::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,140,0,.04),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 60%,
+            rgba(160,0,255,.04),
+            transparent 35%
+        );
+
+    animation:fogMove 40s ease-in-out infinite alternate;
+
+    pointer-events:none;
+
+    z-index:-1;
+}
+
+/* HEADER */
+
+header{
+    margin-bottom:3rem;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    gap:2rem;
+    flex-wrap:wrap;
+    list-style:none;
+    padding:0;
+}
+
+nav li{
+    padding:.85rem 1.6rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,140,0,.22),
+            rgba(180,0,255,.25)
+        );
+
+    border:1px solid rgba(255,255,255,.15);
+
+    backdrop-filter:blur(5px);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        color .35s ease;
+
+    cursor:pointer;
+}
+
+nav li:nth-child(odd){
+    transform:rotate(-5deg);
+}
+
+nav li:nth-child(even){
+    transform:rotate(5deg);
+}
+
+nav li:hover{
+    transform:
+        rotate(12deg)
+        scale(1.15);
+
+    color:#fff;
+
+    box-shadow:
+        0 0 20px orange,
+        0 0 50px purple;
+}
+
+body:has(nav li:hover){
+    animation:screenPanic .12s infinite;
+}
+@keyframes screenPanic{
+
+    0%{
+        filter:
+            brightness(1)
+            contrast(1);
+    }
+
+    10%{
+        filter:
+            brightness(1.6)
+            contrast(1.4);
+    }
+
+    20%{
+        filter:
+            brightness(.7)
+            contrast(1.6);
+    }
+
+    30%{
+        filter:
+            brightness(1.7)
+            contrast(.8);
+    }
+
+    40%{
+        filter:
+            brightness(.8)
+            contrast(2);
+    }
+
+    50%{
+        filter:
+            brightness(1.4)
+            contrast(.9);
+    }
+
+    100%{
+        filter:
+            brightness(1)
+            contrast(1);
+    }
+}
+
+body:has(nav li:hover)::before{
+    animation:
+        bgSpin 10s linear infinite,
+        bgWave 1.5s ease-in-out infinite,
+        bgFlicker .08s infinite;
+}
+body:has(nav li:hover) h1{
+    animation:
+        hauntedGlitch .08s infinite,
+        hueShift .5s linear infinite;
+}
+
+body:has(nav li:hover) section{
+    filter:
+        hue-rotate(90deg)
+        contrast(1.25);
+}
+/* TITLE */
+
+h1{
+    text-align:center;
+
+    font-size:clamp(3rem,10vw,7rem);
+
+    margin-bottom:2rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:.15em;
+
+    color:#ffdca8;
+
+    text-shadow:
+        -3px 0 #ff5555,
+        3px 0 #55e6ff,
+        0 0 25px #ff8c00,
+        0 0 50px #ff5e00;
+
+    animation:
+        drift 12s ease-in-out infinite,
+        hueShift 25s linear infinite;
+}
+
+/* IMAGE */
+
+img{
+    display:block;
+    width:min(400px,90%);
+    margin:2rem auto;
+
+    animation:pulse 6s ease-in-out infinite;
+
+    filter:
+        drop-shadow(0 0 20px orange)
+        drop-shadow(0 0 40px purple);
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+img:hover{
+    transform:
+        rotate(-3deg)
+        scale(1.12);
+
+    filter:
+        hue-rotate(40deg)
+        drop-shadow(0 0 25px orange)
+        drop-shadow(5px 0 red)
+        drop-shadow(-5px 0 cyan);
+}
+
+/* MAIN */
+
+main{
+    position:relative;
+}
+
+/* FLOATING GLOW ORBS */
+
+main::before{
+    content:"";
+    position:fixed;
+
+    width:320px;
+    height:320px;
+
+    top:5%;
+    right:-100px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,140,0,.25),
+            transparent 70%
+        );
+
+    filter:blur(80px);
+
+    animation:floatBlob 18s infinite alternate ease-in-out;
+
+    z-index:-1;
+}
+
+main::after{
+    content:"";
+    position:fixed;
+
+    width:300px;
+    height:300px;
+
+    left:-100px;
+    bottom:10%;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(140,0,255,.22),
+            transparent 70%
+        );
+
+    filter:blur(90px);
+
+    animation:floatBlob 24s infinite alternate ease-in-out;
+
+    z-index:-1;
+}
+
+/* CONTENT PANELS */
+
+section{
+    background:rgba(10,10,10,.45);
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:1.8rem;
+
+    margin:2rem 0;
+
+    box-shadow:
+        0 0 20px rgba(255,140,0,.15);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        filter .35s ease;
+
+    animation:wobble 14s ease-in-out infinite;
+}
+
+section:nth-of-type(2){
+    animation-delay:-4s;
+}
+
+section:nth-of-type(3){
+    animation-delay:-8s;
+}
+
+section:hover{
+
+    filter:
+        brightness(1.1)
+        hue-rotate(15deg);
+
+    box-shadow:
+        0 0 25px orange,
+        0 0 60px rgba(128,0,255,.4);
+
+    animation:hauntedGlitch .16s infinite;
+}
+
+/* HEADINGS */
+
+h2{
+    font-size:2rem;
+
+    color:#ffa83a;
+
+    text-shadow:
+        0 0 8px rgba(255,168,58,.8),
+        0 0 15px rgba(255,140,0,.5);
+}
+
+/* BODY TEXT */
+
+p{
+    line-height:1.9;
+    font-size:1.15rem;
+    color:#ffe7c0;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    margin-top:5rem;
+    font-size:1.1rem;
+    color:#ffcf8c;
+    opacity:.9;
+
+    animation:hueShift 20s linear infinite;
+}
+
+/* ANIMATIONS */
+
+@keyframes bgSpin{
+
+    from{
+        transform:
+            rotate(0deg)
+            scale(1.6);
+    }
+
+    to{
+        transform:
+            rotate(360deg)
+            scale(1.6);
+    }
+}
+
+@keyframes bgWave{
+
+    0%{
+        transform:
+            rotate(0deg)
+            scale(1.6)
+            skewX(0deg)
+            skewY(0deg);
+
+        filter:
+            blur(0px)
+            hue-rotate(0deg);
+    }
+
+    20%{
+        transform:
+            rotate(72deg)
+            scale(1.63)
+            skewX(1deg)
+            skewY(-1deg);
+    }
+
+    40%{
+        transform:
+            rotate(144deg)
+            scale(1.67)
+            skewX(-2deg)
+            skewY(1deg);
+    }
+
+    60%{
+        transform:
+            rotate(216deg)
+            scale(1.65)
+            skewX(2deg)
+            skewY(-2deg);
+    }
+
+    80%{
+        transform:
+            rotate(288deg)
+            scale(1.62)
+            skewX(-1deg)
+            skewY(1deg);
+    }
+
+    100%{
+        transform:
+            rotate(360deg)
+            scale(1.6)
+            skewX(0deg)
+            skewY(0deg);
+    }
+}
+
+@keyframes bgFlicker{
+
+    0%{opacity:.22;}
+    3%{opacity:.18;}
+    6%{opacity:.25;}
+    9%{opacity:.19;}
+    12%{opacity:.23;}
+    25%{opacity:.21;}
+    40%{opacity:.26;}
+    41%{opacity:.17;}
+    42%{opacity:.24;}
+    60%{opacity:.22;}
+    61%{opacity:.28;}
+    62%{opacity:.18;}
+    63%{opacity:.25;}
+    85%{opacity:.20;}
+    100%{opacity:.22;}
+}
+
+@keyframes crtFlicker{
+
+    0%{opacity:.9;}
+    50%{opacity:1;}
+    100%{opacity:.93;}
+}
+
+@keyframes drift{
+
+    0%{
+        transform:
+            translate(-5px,-5px)
+            rotate(-1deg);
+    }
+
+    25%{
+        transform:
+            translate(8px,-2px)
+            rotate(1deg);
+    }
+
+    50%{
+        transform:
+            translate(2px,8px)
+            rotate(-1deg);
+    }
+
+    75%{
+        transform:
+            translate(-7px,2px)
+            rotate(2deg);
+    }
+
+    100%{
+        transform:
+            translate(-5px,-5px)
+            rotate(-1deg);
+    }
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+@keyframes hueShift{
+
+    from{
+        filter:hue-rotate(0deg);
+    }
+
+    to{
+        filter:hue-rotate(360deg);
+    }
+}
+
+@keyframes floatBlob{
+
+    from{
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    to{
+        transform:
+            translate(-120px,50px)
+            scale(1.3);
+    }
+}
+
+@keyframes fogMove{
+
+    from{
+        transform:
+            scale(1)
+            translateX(0);
+    }
+
+    to{
+        transform:
+            scale(1.3)
+            translateX(-100px);
+    }
+}
+
+@keyframes wobble{
+
+    0%,100%{
+        transform:
+            translateX(0)
+            rotate(-1deg);
+    }
+
+    50%{
+        transform:
+            translateX(12px)
+            rotate(2deg);
+    }
+}
+
+@keyframes hauntedGlitch{
+
+    0%{
+        transform:
+            translate(0,0)
+            rotate(-1deg)
+            scale(1.03);
+    }
+
+    25%{
+        transform:
+            translate(-2px,1px)
+            rotate(1deg)
+            scale(1.03);
+    }
+
+    50%{
+        transform:
+            translate(2px,-1px)
+            rotate(-1deg)
+            scale(1.03);
+    }
+
+    75%{
+        transform:
+            translate(-1px,-2px)
+            rotate(2deg)
+            scale(1.03);
+    }
+
+    100%{
+        transform:
+            translate(0,0)
+            rotate(-1deg)
+            scale(1.03);
+    }
+}
+@keyframes lightning{
+
+    0%,85%,100%{
+        filter:none;
+    }
+
+    86%{
+        filter:
+            brightness(2.5)
+            contrast(1.5);
+    }
+
+    87%{
+        filter:none;
+    }
+
+    88%{
+        filter:
+            brightness(1.8)
+            contrast(1.4);
+    }
+
+    89%{
+        filter:none;
+    }
+
+    90%{
+        filter:
+            brightness(3)
+            contrast(1.6);
+    }
+
+    91%{
+        filter:none;
+    }
+
+    92%{
+        filter:
+            brightness(1.5)
+            contrast(1.3);
+    }
+}

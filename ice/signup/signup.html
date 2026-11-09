@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Feed Sign Up</title>
+
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            background: rgb(120, 96, 64);
+            justify-items: center;
+        }
+
+        #formContainer {
+            width: 400px;
+            margin: 20px auto;
+            border: 8px solid navy;
+            border-radius: 20px;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        #formHeader {
+            height: 150px;
+            background-image: url("images/jesus_feeds_5000.jpeg");
+            background-size: cover;
+            display: grid;
+            grid-template-rows: 3fr 2fr 1fr;
+            grid-template-columns: 1;
+            padding: 0 0 20px 0;
+            color: white;
+            text-shadow: 2px 2px 2px black;
+            text-align: center;
+        }
+
+        #formHeader button {
+            width: 25px;
+            height: 22px;
+            margin: 10px 10px;
+            padding: 0;
+            text-align: center;
+            text-justify: center;
+        }
+
+        #formHeader h3 {
+            font-size: 30px;
+            grid-row: 3;
+        }
+        #formHeader h2 {
+            font-size: 40px;
+            grid-row: 2;
+        }
+
+        
+        #myForm {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px 30px;
+            text-align: center;
+        }
+        
+        #formInputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: left;
+            text-align: left;
+            gap: 15px 30px;
+        }
+
+        #formInputs input {
+            width: 100%;
+        }
+
+        #genderButtons {
+            display: flex;
+            flex-direction: row;
+            justify-items: flex-end;
+            padding: 0;
+        }
+
+
+
+        #genderButtons input {
+            width: 15px;
+        }
+
+        #scriptureFooter {
+            display: flex;
+            justify-content: space-between;
+        }
+        #scriptureFooter a {
+            width: 19.5%;
+            height: 105px;
+            transition: all 0.2s;
+        }
+        #scriptureFooter a img {
+            width: 100%;
+            height: 100%;
+        }
+
+        #scriptureFooter a:hover {
+            transform:scale(110%);
+            transition: all 0.2s;
+        }
+
+        #formHeader button:hover {
+            border: 2px solid black;
+            border-radius: 2px;
+            font-weight: bolder;
+        }
+
+        #myForm input:hover {
+            background-color: yellow;
+        }
+        #myForm input:focus {
+            background-color: yellow;
+        }
+        #myForm input:user-valid {
+            background-color: lightgreen;
+            border: 2px solid forestgreen;
+            border-radius: 2px;
+        }
+        #myForm input:user-invalid {
+            background-color: pink;
+            border: 2px solid darkred;
+            border-radius: 2px;
+        }
+
+        #bragging {
+            width: 450px;
+        }
+
+
+
+    </style>
+
+
+
+
+</head>
+
+<body>
+    <div id="formContainer">
+        <div id="formHeader">
+            <button type="button" id="closeBtn">X</button>
+            <h2>Daily Feed</h2>
+            <h3>Scripture a Day</h3>
+        </div>
+        <form id="myForm">
+            <h3>Sign Up for a Daily Scripture Feed</h3>
+            <div id="formInputs">
+                <label for="username">User Name:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label>Gender:</label>
+                <div id="genderButtons">
+                    <input type="radio" id="male" name="gender" value="male" required>
+                    <label for="male"> Male </label>
+                    <input type="radio" id="female" name="gender" value="female" required>
+                    <label for="female"> Female </label>
+                </div>
+            </div>
+            <section>
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Subscribe to newsletter</label>
+            </section>
+
+            <section>
+                <input type="checkbox" id="conditions" name="conditions" required>
+                <label for="conditions">I acknowledge the terms and conditions</label>
+            </section>
+
+            <section>
+                <button type="submit">Submit</button>
+            </section>
+        </form>
+        <div id="scriptureFooter">
+            <a href="https://www.churchofjesuschrist.org/study/scriptures/ot?lang=eng" target="_blank"><img src="images/old_testament.webp"></a>
+            <a href="https://www.churchofjesuschrist.org/study/scriptures/nt?lang=eng" target="_blank"><img src="images/new_testament.webp"></a>
+            <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm?lang=eng" target="_blank"><img src="images/book_of_mormon.webp"></a>
+            <a href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament?lang=eng" target="_blank"><img src="images/doctrine_and_covenants.webp"></a>
+            <a href="https://www.churchofjesuschrist.org/study/scriptures/pgp?lang=eng" target="_blank"><img src="images/pearl_of_great_price.webp"></a>
+        </div>
+
+    </div>
+    
+    <details id="bragging">
+        <summary>Extra Credit Efforts</summary>
+        <div>
+            <ul>
+                <li>Hover animations/effects for the scriptures and the x button using the :hover pseudo-class</li>
+                <li>Background color for field that is being edited using the :focus pseudo-class</li>
+                <li>Validation signal for text fields: they turn green when valid and red if invalid using the :user-valid and :user-invalid pseudoclasses</li>
+                <li>Learned about and implemented the <strong>&lt;details&gt;</strong> tag to make this expandable menu</li>
+            </ul>
+            
+        </div>
+    </details>
+
+    <div id="output"></div>
+
+    <script>
+        // Here is some Javascript to start looking forward to wdd131
+        document.getElementById("closeBtn").addEventListener("click", function () {
+            document.getElementById("formContainer").style.display = "none";
+         });
+        const form = document.getElementById('myForm');
+        const output = document.getElementById('output');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Stop form from actually submitting
+
+            const formData = new FormData(form);
+            const entries = [];
+
+            for (const [key, value] of formData.entries()) {
+                if (key == "password") {
+                    entries.push(`<strong>${key}</strong>: ${value} (you should probably encrypt the password)`);
+                } else {
+                    entries.push(`<strong>${key}</strong>: ${value}`);
+                }
+            }
+
+            output.innerHTML = `
+            <br>  
+            <h3>Here is the data that would be sent to the server:</h3>
+            <ul>
+                ${entries.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+            `;
+                });
+    </script>
+
+</body>
+
+</html>
