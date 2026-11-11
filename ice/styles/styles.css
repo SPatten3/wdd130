@@ -12,6 +12,11 @@
     z-index: 1;
 }
 
+#ice-cube-spam {
+    background-image: url("../../images/ice_cube_the_cube.jpg");
+    background-size: 300px;
+}
+
 
 .ice-section table tr:nth-child(even) {
     background-color: #95a5a6;
